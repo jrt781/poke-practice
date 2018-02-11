@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lab 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+    <h1 id="title"><a href="index.html">PokePractice</a></h1>
+    <nav>
+      <div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a class="active" href="pokedex.html">Pokedex</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <main>
+      <form id="pokedexForm">
+        <label>Enter a range of Pokemon IDs:</label>
+        <br/>
+        From <input id="lowerId" type="text">
+        To <input id="upperId" type="text">
+        <br/>
+        <input id="pokedexSubmit" type="submit" value="Research">
+      </form>
+      <div id="pokedexEntries">
+
+      </div>
+    </main>
+
+    <!--
+    <div class="row">
+      <div class="column" id="weatherContainer">
+        <form id="weatherForm" class="grid-element">
+          <label>Enter a U.S. city:</label>
+          <br/>
+          <input id="weatherInput" type="text">
+          <br/>
+          <input id="weatherSubmit" type="submit" value="Get Weather!">
+        </form>
+
+        <div id="weatherResults" class="grid-element">
+          <h2>Weather in <span id="city"></span></h2>
+          <div id="weather-images"></div>
+          <div id="weather-conditions"></div>
+          <p>Temperature is <span id="temperature"></span>&deg;F</p>
+          <p>Pressure is <span id="pressure"></span></p>
+          <p>Humidity is <span id="humidity"></span></p>
+          <p>Wind speed is <span id="wind-speed"></span></p>
+        </div>
+      </div>
+
+      <div class="column" id="stackContainer">
+        <form id="stackForm" class="grid-element">
+          <label>Search Stack Overflow:</label>
+          <br/>
+          <input id="stackInput" type="text">
+          <br/>
+          <input id="stackSubmit" type="submit" value="Search">
+        </form>
+        <div id="stackResults">
+        </div>
+      </div>
+    </div>
+  -->
+
+    <footer>
+      <a href="https://github.com/jrt781/poke-practice">Github: jrt781</a>
+    </footer>
+  </body>
+</html>
