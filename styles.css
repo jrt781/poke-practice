@@ -1,17 +1,5 @@
-:root {
-    --accent1-color: #6EC4DB;
-    --accent2-color: #66AB8C;
-    --highlight-color: #FFF7C0;
-    --active-color: #FA7C92;
-    --main-color: white;
-}
-
-#weatherResults {
-  display: none;
-}
-
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -84,13 +72,44 @@ input[type=submit]:hover {
 }*/
 
 .entry {
-  background-color: green;
+  background-color: #DDDDDD;
   margin-bottom: 20px;
+  display: flex;
+}
+
+.entry>div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding:20px;
+}
+
+.entry img {
+  display: inline;
+}
+
+.entry p {
+  display: inline;
 }
 
 footer {
   padding: 10px;
   text-align: center;
+}
+
+#ajax-loader {
+  display: none;
+}
+
+#progressBar {
+  width: 100%;
+  background-color: #FF7272;
+  display: none;
+}
+
+#loadedBar {
+  width: 1%;
+  height: 30px;
+  background-color: #B80909;
 }
 
 /* -- NAGIVATION ----------------------------- */
