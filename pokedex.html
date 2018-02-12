@@ -6,7 +6,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="icon" href="images/flat-pokeball.png">
+    <link rel="icon" href="http://159.89.34.246/poke-practice/images/flat-pokeball.png">
   </head>
   <body>
     <h1 id="title"><a href="index.html">PokéPractice</a></h1>
@@ -24,34 +24,54 @@
     <script type="text/javascript" src="script.js"></script>
 
     <main>
-      <form id="pokedexForm">
-        <span>Enter a Pokemon name:</span>
-        <input id="pokemonName" type="text">
-        <br/>
-        <span>Enter a range of Pokemon IDs:</span>
-        <label>From </label><input id="lowerId" type="text" />
-        <label>To </label><input id="upperId" type="text" />
-        <br/>
-        <input id="pokedexSubmit" type="submit" value="Research">
-      </form>
-      <div id="pokedexEntries">
-        <div class="entry">
-          <div>
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" />
-          </div>
-          <div>
-            <h3>Pikachu - #25</h3>
-            <h4>Electric</h4>
-            <p>
-              When several of these POKéMON gather, their electricity could build and cause lightning storms.
-            </p>
-          </div>
-        </div>
+      <p>Choose a way to search Pokémon:</p>
+
+      <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'pokemonNameSearch')">Name</button>
+        <button class="tablinks" onclick="openTab(event, 'pokemonIdSearch')">ID</button>
+        <button class="tablinks" onclick="openTab(event, 'pokemonGroupSearch')">Group</button>
       </div>
-      <img id="ajax-loader" src="images/ajax-loader.gif" />
+
+      <div id="pokemonNameSearch" class="tabcontent">
+        <form>
+          <span>Enter a Pokemon name:</span>
+          <input id="pokemonName" type="text">
+          <br/>
+          <input id="pokemonNameSubmit" type="submit" value="Research">
+        </form>
+      </div>
+
+      <div id="pokemonIdSearch" class="tabcontent">
+        <form>
+          <span>Enter a Pokemon ID:</span>
+          <input id="onlyId" type="text" />
+          <br />
+          <input id="pokemonIdSubmit" type="submit" value="Research">
+        </form>
+      </div>
+
+      <div id="pokemonGroupSearch" class="tabcontent">
+        <form>
+          <span>Enter a range of Pokemon IDs:</span>
+          <br />
+          <label>From </label><input id="lowerId" type="text" />
+          <label>To </label><input id="upperId" type="text" />
+          <br />
+          <input id="pokemonGroupSubmit" type="submit" value="Research">
+        </form>
+      </div>
+
+      <div id="pokedexEntries">
+
+      </div>
+
+      <div id="ajax-loader-wrapper">
+        <img id="ajax-loader" src="images/ajax-loader.gif" />
+      </div>
       <div id="progressBar">
         <div id="loadedBar"></div>
       </div>
+
     </main>
 
     <!--
