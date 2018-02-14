@@ -57,13 +57,44 @@
           <label>From </label><input id="lowerId" type="text" />
           <label>To </label><input id="upperId" type="text" />
           <br />
+          <div id="suggestions">
+            <input type="button" class="suggestionRange" onclick="enterRange(1,151)" value="Gen I" />
+            <input type="button" class="suggestionRange" onclick="enterRange(152,251)" value="Gen II" />
+            <input type="button" class="suggestionRange" onclick="enterRange(252,386)" value="Gen III" />
+            <input type="button" class="suggestionRange" onclick="enterRange(387,493)" value="Gen IV" />
+            <input type="button" class="suggestionRange" onclick="enterRange(494,649)" value="Gen V" />
+            <input type="button" class="suggestionRange" onclick="enterRange(650,721)" value="Gen VI" />
+            <input type="button" class="suggestionRange" onclick="enterRange(722,802)" value="Gen VII" />
+            <br />
+            <input type="button" class="suggestionRange" onclick="enterRange(1,9)" value="I Starters" />
+            <input type="button" class="suggestionRange" onclick="enterRange(152,160)" value="II Starters" />
+            <input type="button" class="suggestionRange" onclick="enterRange(252,260)" value="III Starters" />
+            <input type="button" class="suggestionRange" onclick="enterRange(387,395)" value="IV Starters" />
+            <input type="button" class="suggestionRange" onclick="enterRange(495,503)" value="V Starters" />
+            <input type="button" class="suggestionRange" onclick="enterRange(650,658)" value="VI Starters" />
+            <input type="button" class="suggestionRange" onclick="enterRange(722,730)" value="VII Starters" />
+            <br />
+            <input type="button" class="suggestionRange" onclick="enterRange(144,146)" value="I Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(243,245)" value="II Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(382,384)" value="III Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(483,484)" value="IV Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(643,646)" value="V Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(716,718)" value="VI Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(789,792)" value="VII Legendaries" />
+            <input type="button" class="suggestionRange" onclick="enterRange(150,151)" value="Mew Duo" />
+            <input type="button" class="suggestionRange" onclick="enterRange(249,250)" value="Tower Duo" />
+            <input type="button" class="suggestionRange" onclick="enterRange(380,381)" value="Eon Duo" />
+            <input type="button" class="suggestionRange" onclick="enterRange(480,482)" value="Lake Guardians" />
+            <input type="button" class="suggestionRange" onclick="enterRange(638,640)" value="Swords of Justice" />
+            <input type="button" class="suggestionRange" onclick="enterRange(785,788)" value="Guardian Deities" />
+            <input type="button" class="suggestionRange" onclick="enterRange(793,799)" value="Ultra Beasts" />
+          </div>
+          <br />
           <input id="pokemonGroupSubmit" type="submit" value="Research">
         </form>
       </div>
 
-      <div id="pokedexEntries">
-
-      </div>
+      <div id="pokedexEntries"></div>
 
       <div id="ajax-loader-wrapper">
         <img id="ajax-loader" src="images/ajax-loader.gif" />
@@ -111,7 +142,9 @@
   -->
 
     <footer>
-      <a href="https://github.com/jrt781/poke-practice">Github: jrt781</a>
+      Find the source code at <a href="https://github.com/jrt781/poke-practice">Github: jrt781</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      Huge thanks to <a href="https://pokeapi.co/">Pokéapi</a>
     </footer>
   </body>
 </html>

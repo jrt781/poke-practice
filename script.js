@@ -86,6 +86,8 @@ function getPokemonEntries(id, howManySoFar, howManyTotal) {
     dataType : "json",
     success : function(pokemonJson) {
       console.log(pokemonJson);
+      var percent = 100*(2*howManySoFar+1)/(2*howManyTotal-1);
+      document.getElementById("loadedBar").style.width = percent + '%';
       $.ajax({
         url : speciesUrl,
         dataType : "json",
@@ -96,7 +98,8 @@ function getPokemonEntries(id, howManySoFar, howManyTotal) {
 
           ++howManySoFar;
           if (howManySoFar < howManyTotal) {
-            var percent = 100*howManySoFar/(howManyTotal-1);
+            var percent = 100*2*howManySoFar/(2*howManyTotal-1);
+            // var percent = 100*howManySoFar/(howManyTotal-1);
             document.getElementById("loadedBar").style.width = percent + '%';
             getPokemonEntries(++id, howManySoFar, howManyTotal);
           } else {
@@ -119,9 +122,9 @@ function createEntry(pokemonJson, speciesJson) {
 
   var imageDiv = document.createElement("div");
   imageDiv.className = "pokemonImage";
-  var helperSpan = document.createElement("span");
-  helperSpan.className = "helper";
-  imageDiv.appendChild(helperSpan);
+  var verticalMiddleAlignPokedexImageHelperSpan = document.createElement("span");
+  verticalMiddleAlignPokedexImageHelperSpan.className = "verticalMiddleAlignPokedexImageHelper";
+  imageDiv.appendChild(verticalMiddleAlignPokedexImageHelperSpan);
   var sprite = document.createElement("img");
   sprite.src = pokemonJson.sprites.front_default;
   imageDiv.appendChild(sprite);
@@ -146,7 +149,40 @@ function createEntry(pokemonJson, speciesJson) {
   var genusElement = document.createElement("h4");
   genusElement.innerHTML = genus;
   dataDiv.appendChild(genusElement);
+    
+  var typesElement = document.createElement("div");
+  if (pokemonJson.types.length == 1) {
+    var imageElement1 = document.createElement("img");
+    imageElement1.src = "images/types/" + pokemonJson.types[0].type.name + ".png";
+    imageElement1.className = "type";
+    typesElement.appendChild(imageElement1);
+  } else {
+    var imageElement1 = document.createElement("img");
+    imageElement1.src = "images/types/" + pokemonJson.types[0].type.name + ".png";
+    imageElement1.className = "type";
+    typesElement.appendChild(imageElement1);
+    
+    var imageElement2 = document.createElement("img");
+    imageElement2.src = "images/types/" + pokemonJson.types[1].type.name + ".png";
+    imageElement2.className = "type";
+    typesElement.appendChild(imageElement2);
+  }
+  dataDiv.appendChild(typesElement);
+  
+  /*
 
+  CODE TO PUT TEXT REPRESENTING TYPES IN
+  
+  var typesElement = document.createElement("h4");
+  if (pokemonJson.types.length == 1) {
+    typesElement.innerHTML = titleCase(pokemonJson.types[0].type.name);
+  } else {
+    typesElement.innerHTML = titleCase(pokemonJson.types[0].type.name)+ " & "
+                           + titleCase(pokemonJson.types[1].type.name);
+  }
+  dataDiv.appendChild(typesElement);
+  */
+  
   var flavors = speciesJson.flavor_text_entries;
   var flavor;
   i = 0;
@@ -182,4 +218,9 @@ function openTab(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function enterRange(lower, upper) {
+  document.getElementById("lowerId").value = lower;
+  document.getElementById("upperId").value = upper;
 }

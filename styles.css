@@ -1,8 +1,12 @@
+/* -- GENERAL CONTENT ------------------------ */
+
 body {
   font-family: 'Ubuntu', sans-serif;
   padding: 0;
   margin: 0;
 }
+
+/* -- TITLE BAR ------------------------------ */
 
 #title {
   padding: 10px 0;
@@ -10,7 +14,8 @@ body {
   text-align: center;
   width: 100%;
   background-color: #EA1717;
-  font-size: 3em;
+  font-size: 48px;
+  height:50px;
 }
 
 #title a {
@@ -18,18 +23,102 @@ body {
   text-decoration: none;
 }
 
-main {
-  padding: 20px 15%;
+/* -- NAGIVATION ----------------------------- */
+
+nav {
+  text-align: center;
+  background-color: #B80909;
 }
 
-/* Style the tab */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  display: inline-flex;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  height: 18px;
+}
+
+nav li a.active {
+  background-color: #900000;
+  color: white;
+}
+
+nav li a:hover {
+  background-color: #FF7272;
+  color: black;
+}
+
+/* -- MAIN CONTENT --------------------------- */
+
+main {
+  padding: 20px 15%;
+  min-height: calc(100vh - 206px);
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 40%;
+  background-color: #1B4AAE;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+  margin: 0 2.5% 25px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+/*@media (max-width: 800px) {
+  .column {
+    width: 100%;
+  }
+}*/
+
+/* -- FOOTER CONTENT ------------------------- */
+
+footer {
+  padding: 15px;
+  text-align: center;
+  background-color: #B80909;
+  height: 20px;
+  vertical-align: middle;
+  color: white;
+}
+
+footer a {
+  display: inline;
+  color: white;
+}
+
+/* -- POKEDEX SEARCH ------------------------- */
+
 .tab {
     overflow: hidden;
     border: 1px solid #CCCCCC;
     background-color: #EEEEEE;
 }
 
-/* Style the buttons inside the tab */
 .tab button {
     background-color: inherit;
     float: left;
@@ -41,17 +130,14 @@ main {
     font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
     background-color: #DDDDDD;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
     background-color: #CCCCCC;
 }
 
-/* Style the tab content */
 .tabcontent {
     display: none;
     padding: 12px;
@@ -89,37 +175,29 @@ input[type=submit]:hover {
   background-color: #B80909;
 }
 
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 40%;
-  background-color: #1B4AAE;
-  padding: 20px;
-  color: white;
-  border-radius: 5px;
-  margin: 0 2.5% 25px;
+.suggestionRange {
+  display: inline;
+  margin: 10px 5px 0 0;
+  background-color: #DDDDDD;
+  color: black;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.suggestionRange:hover {
+  background-color: #CCCCCC;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-/*@media (max-width: 800px) {
-  .column {
-    width: 100%;
-  }
-}*/
+/* -- POKEDEX ENTRIES ------------------------ */
 
 .entry {
   background-color: #DDDDDD;
   margin-bottom: 20px;
   display: flex;
   border-radius: 10px;
-  width: auto;
 }
 
 .entry>div {
@@ -129,29 +207,32 @@ input[type=submit]:hover {
   border-radius: 10px;
 }
 
+.pokemonData {
+  padding:20px;
+  width: 60vw;
+}
+
+.type {
+  display: inline;
+  margin: 0 5px 0 0;
+}
+
+.verticalMiddleAlignPokedexImageHelper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
 .pokemonImage {
   min-width: 128px;
   text-align: center;
 }
 
-.pokemonData {
-  padding:20px;
-}
-
-.helper {
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
 .entry img {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
-footer {
-  padding: 10px;
-  text-align: center;
-}
+/* -- LOADING -------------------------------- */
 
 #ajax-loader {
   display: none;
@@ -172,46 +253,8 @@ footer {
   width: 1%;
   height: 30px;
   background-color: #B80909;
-  transition: width 1.5s;
+  transition: width 1s;
   border-radius: 5px;
-}
-
-/* -- NAGIVATION ----------------------------- */
-
-nav {
-  text-align: center;
-  background-color: #B80909;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  overflow: hidden;
-  display: inline-flex;
-}
-
-nav li {
-  float: left;
-}
-
-nav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-nav li a.active {
-  background-color: #900000;
-  color: white;
-}
-
-nav li a:hover {
-  background-color: #FF7272;
-  color: black;
 }
 
 /*
