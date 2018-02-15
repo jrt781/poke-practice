@@ -13,33 +13,34 @@
     <nav>
       <div>
         <ul>
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="quiz.html">Quiz</a></li>
           <li><a href="pokedex.html">Pokédex</a></li>
         </ul>
       </div>
     </nav>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="quiz.js"></script>
 
-    <main>
-      <img id="front-img" src="images/flat-pokeball.png" />
-      <h1>Welcome to PokéPractice!</h1>
+    <main id="quizMain">
       
-      <p>
-        PokéPractice helps you refine your Pokémon knowledge through quizzes and a full Pokédex!
-      </p>
+      <input type="submit" value="Start the Quiz!" id="startQuizButton" />
       
-      <p>
-        The quizzes have randomly-generated questions to test you on Pokémon
-        names and images. How well do you know the 800+ Pokémon that
-        are out there? You can keep taking the quiz as long as you want!
-      </p>
+      <div id="quiz">
+        <h3 id="scoreHeader">Score: 
+          <span id="score">--</span>/<span id="complete">--</span>
+        </h3>
+        <h3 id="scoreHeaderBalance"></h3>
+        <h1>Question <span id="questionNumber">1</span></h1>
+        <div id="questionText"></div>
+        <div id="questionAnswers"></div>
+        <input type="submit" value="Next Question" id="nextQuestionButton" />
+      </div>
       
-      <p>
-        Click on the tabs above to explore!
-      </p>
+      <div id="progressBar">
+        <div id="loadedBar"></div>
+      </div>
 
     </main>
 

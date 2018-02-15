@@ -70,7 +70,112 @@ main {
   min-height: calc(100vh - 206px);
 }
 
-/* Create two equal columns that floats next to each other */
+#front-img {
+  height: 200px;
+  float: right;
+}
+
+#quizMain {
+  text-align: center;
+}
+
+#quiz {
+  background-color: #DDDDDD;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0 0 0;
+  display: none;
+}
+
+#questionAnswers {
+  text-align: center;
+}
+
+#scoreHeader {
+  float: right;
+  margin-right: 25px;
+  width: 125px;
+}
+
+#scoreHeaderBalance {
+  float: left;
+  margin-left: 25px;
+  width: 125px;
+}
+
+.four-column {
+  padding: 10px;
+  margin: 20px;
+  background-color: #EEEEEE;
+  border-radius: 5px;
+  width: 128px;
+  height: 128px;
+  display: inline-table;
+  position: relative;
+}
+
+.four-column *, .two-by-two * {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.four-column img {
+    position: absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.two-by-two {
+  width: 40%;
+  padding: 2%;
+  margin: 2%;
+  background-color: #EEEEEE;
+  border-radius: 5px;
+  height: 128px;
+  display: inline-table;
+}
+
+@media only screen and (max-width: 768px) {
+  .four-column {
+    width: 50%;
+  }
+  
+  .two-by-two {
+    width: 90%;
+  }
+  
+  #scoreHeader {
+    text-align: right;
+    width: 100%;
+  }
+  
+  #scoreHeaderBalance {
+    display: none;
+  }
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.four-column:hover {
+  box-shadow: 0px 0px 18px 5px #999999;
+}
+/*
+.correct, .correct:hover {
+  box-shadow: 0px 0px 18px 5px green;
+}
+
+.incorrect, .incorrect:hover {
+  box-shadow: 0px 0px 18px 5px red;
+}
+*/
+/*
 .column {
   float: left;
   width: 40%;
@@ -81,12 +186,12 @@ main {
   margin: 0 2.5% 25px;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
+*/
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 /*@media (max-width: 800px) {
