@@ -5,6 +5,9 @@ $(document).ready(function () {
   $("#questionAnswers").empty();
   makeNameToImageQuestion();
   
+  var isChrome = !!window.chrome && !!window.chrome.webstore;
+  console.log(isChrome);
+  
   $("#nextQuestionButton").click(function(e) {
     e.preventDefault();
     $("#quiz").css("display", "none");
@@ -60,6 +63,34 @@ function makeNameToImageIncorrectAnswer() {
     }
     $("#progressBar").css("display", "none"); 
     $("#loadedBar").css("width", "1%");
+    $(".four-column").css("border", "5px solid #EEEEEE")
+    if (!!window.chrome && !!window.chrome.webstore) {
+      $(".four-column").hover(
+        function(){
+          if (parseInt($("#complete").html()) < parseInt($("#questionNumber").html()) || $("#complete").html() == "--") {
+            $(this).css("border", "5px solid #999999");
+          }
+        },
+        function(){
+          if (parseInt($("#complete").html()) < parseInt($("#questionNumber").html()) || $("#complete").html() == "--") {
+            $(this).css("border", "5px solid #EEEEEE");
+          }
+        }
+      );
+    } else {
+      $(".four-column").hover(
+        function(){
+          if (parseInt($("#complete").html()) < parseInt($("#questionNumber").html()) || $("#complete").html() == "--") {
+            $(this).css("box-shadow", "0px 0px 18px 5px #999999");
+          }
+        },
+        function(){
+          if (parseInt($("#complete").html()) < parseInt($("#questionNumber").html()) || $("#complete").html() == "--") {
+            $(this).css("box-shadow", "none");
+          }
+        }
+      );
+    }
     $("#quiz").css("display", "block");
     $("#nextQuestionButton").css("display", "none");
   }
@@ -72,6 +103,9 @@ function checkAnswer(element, correct) {
   }
   if (parseInt($("#complete").html()) < parseInt($("#questionNumber").html())) {
     $(".four-column").css("box-shadow", "0px 0px black");
+    if (!!window.chrome && !!window.chrome.webstore) {
+      element.style.border = "5px solid #EEEEEE";
+    }
     $(".correct").css("box-shadow", "0px 0px 18px 5px green");
     if (correct) {
       $("#score").html(parseInt($("#score").html()) + 1);
